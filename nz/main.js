@@ -32,7 +32,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     .openPopup(); */
 
 for (let etappe of ETAPPEN) {
-    let pop =`
+    let pop = `
     <h3>${etappe.titel} (Etappe ${etappe.nr})</h3>
     <ul>
         <li>geogr. Länge: ${etappe.lng}</li>
@@ -42,10 +42,13 @@ for (let etappe of ETAPPEN) {
     </ul>
     `;
     L.marker([etappe.lat, etappe.lng]).addTo(map).bindPopup(pop);
+    let link = `<a href="https://${etappe.github}.github.io/nz" class="etappenLink" title=${etappe.titel}>${etappe.nr}</a>`;
+    // Etappennavigation erweitern
+    document.querySelector("#navigation").innerHTML += link
 }
 
 for (let hut of HUTS) {
-    let pop =`
+    let pop = `
         <h3>${hut.name}</h3>
         <h4>${hut.region}</h4>
         <hr>

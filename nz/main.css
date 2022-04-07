@@ -44,6 +44,7 @@ main {
 article {
     padding: 1em;
 }
+
 article figure img {
     width: 100%;
 }
@@ -62,14 +63,24 @@ footer {
     padding: 1em 2em 3em 2em;
 }
 
-footer .back{
+footer .back {
     float: left;
 }
 
-footer .next{
+footer .next {
     float: right;
 }
 
 .shadow {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.etappenLink {
+    background: white;
+    border: 1px solid black;
+    padding: 0.5em;
+    width: 2em;
+    margin-top: 0.5em;
+    text-align: center;
+    display: inline-block
 }
