@@ -9,15 +9,17 @@ let coords = [-39.195, 175.620];
 let pop =`
     <h3>Tongariro Nationalpark</h3>
     <ul>
-        <li>geogr. Länge: ${lng}</li>
-        <li>geogr. Breite: ${lat}</li>
+        <li>geogr. Länge: ${ETAPPEN[0].lng}</li>
+        <li>geogr. Breite: ${ETAPPEN[0].lat}</li>
+        <li><a href=${ETAPPEN[0].wikipedia}>Wikipedia</a></li>
+        <li><a href=${ETAPPEN[0].github}>github</a></li>
     </ul>
     `
 
 console.log(coords[0]);
 console.log(coords.length);
 console.log(`text ${lat}`);
-console.log(ETAPPEN[0].titel)
+console.log(ETAPPEN[0])
 
 let map = L.map('map').setView([lat, lng], zoom);
 
