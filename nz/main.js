@@ -17,6 +17,7 @@ let pop =`
 console.log(coords[0]);
 console.log(coords.length);
 console.log(`text ${lat}`);
+console.log(ETAPPEN[0].titel)
 
 let map = L.map('map').setView([lat, lng], zoom);
 
