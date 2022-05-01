@@ -22,11 +22,33 @@ console.log(coords.length);
 console.log(`text ${lat}`);
 console.log(ETAPPEN[0]) */
 
-let map = L.map('map').setView(coords, zoom);
+let startLayer = L.tileLayer.provider("Esri.WorldGrayCanvas")
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+let map = L.map('map', {center: coords, zoom: zoom, layers: [startLayer]});
+
+// Layer control
+
+
+let layerControl = L.control.layers({
+    "Basic": startLayer,
+    "Satellite": L.tileLayer.provider("Esri.WorldImagery"),
+    "Terrain": L.tileLayer.provider("Esri.WorldShadedRelief"),
+    "Open Street Map": L.tileLayer.provider("OpenStreetMap.Mapnik"),
+    "Basemap mit Orthofoto und Beschriftung": L.layerGroup([
+        L.tileLayer.provider("BasemapAT.orthofoto"),L.tileLayer.provider("BasemapAT.overlay")
+    ])
 }).addTo(map);
+
+layerControl.expand();
+
+// Scale Bar, fullscreen, minimap
+L.control.scale({
+    imperial: false
+}).addTo(map)
+
+L.control.fullscreen().addTo(map)
+
+let miniMap = new L.Control.MiniMap(L.tileLayer.provider("OpenTopoMap")).addTo(map);
 
 /* L.marker([lat, lng]).addTo(map)
     .bindPopup(pop)
