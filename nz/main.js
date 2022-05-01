@@ -1,6 +1,6 @@
 // Neuseelandreise Skript we
 
-let zoom = 8;
+let zoom = 7;
 
 let coords = [
     ETAPPEN[17].lat,
@@ -33,10 +33,7 @@ let layerControl = L.control.layers({
     "Basic": startLayer,
     "Satellite": L.tileLayer.provider("Esri.WorldImagery"),
     "Terrain": L.tileLayer.provider("Esri.WorldShadedRelief"),
-    "Open Street Map": L.tileLayer.provider("OpenStreetMap.Mapnik"),
-    "Basemap mit Orthofoto und Beschriftung": L.layerGroup([
-        L.tileLayer.provider("BasemapAT.orthofoto"),L.tileLayer.provider("BasemapAT.overlay")
-    ])
+    "Open Street Map": L.tileLayer.provider("OpenStreetMap.Mapnik")
 }).addTo(map);
 
 layerControl.expand();
@@ -67,7 +64,7 @@ for (let etappe of ETAPPEN) {
 
     //console.log(etappe)
     let navClass = "etappenLink";
-    let mrk = L.marker([etappe.lat, etappe.lng]).addTo(map).bindPopup(pop);
+    let mrk = L.marker(coords).addTo(map).bindPopup(pop);
     if (etappe.nr == 17) {
         mrk.openPopup();
         navClass = "etappenLink etappeAktuell";

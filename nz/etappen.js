@@ -115,8 +115,8 @@ const ETAPPEN = [{
     "github": "franzwagner7",
     "titel": "Coromandel Peninsula",
     "wikipedia": "https://de.wikipedia.org/wiki/Coromandel_Peninsula",
-    "lat": -39.195,
-    "lng": 175.62
+    "lat": -36.5394784238082,
+    "lng":  175.42641841116372
 }, {
     "nr": 18,
     "github": "helli07",
